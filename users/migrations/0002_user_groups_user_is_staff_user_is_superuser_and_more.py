@@ -36,14 +36,14 @@ class Migration(migrations.Migration):
         ),
         migrations.AddField(
             model_name='user',
-            name='s_active',
+            name='is_active',
             field=models.BooleanField(default=True),
         ),
-        migrations.AddField(
-            model_name='user',
-            name='user_permissions',
-            field=models.ManyToManyField(blank=True, help_text='Specific permissions for this user.', related_name='user_set', related_query_name='user', to='auth.permission', verbose_name='user permissions'),
-        ),
+        # migrations.AddField(
+        #     model_name='user',
+        #     name='user_permissions',
+        #     field=models.ManyToManyField(blank=True, help_text='Specific permissions for this user.', related_name='user_set', related_query_name='user', to='auth.permission', verbose_name='user permissions'),
+        # ),
         migrations.CreateModel(
             name='Group_enrollments',
             fields=[

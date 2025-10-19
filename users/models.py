@@ -22,7 +22,7 @@ class UserManager(BaseUserManager):
 
         return self.create_user(email, username, password, **extra_fields)
 
-class  User(AbstractBaseUser):
+class  User(AbstractBaseUser,PermissionsMixin):
     id = models.UUIDField(primary_key = True, default = uuid.uuid4, editable = False)
     full_name = models.CharField(max_length = 50)
     email = models.EmailField(unique=True)
@@ -37,8 +37,8 @@ class  User(AbstractBaseUser):
             ('student','Student'),
 
         ])
-    # s_active = models.BooleanField(default=True)
-    # is_staff = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
+    is_staff = models.BooleanField(default=False)
 
     objects = UserManager()  # connect the custom manager
 
